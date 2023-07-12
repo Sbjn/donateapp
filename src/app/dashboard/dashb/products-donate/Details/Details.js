@@ -3,8 +3,7 @@ import React ,{useState} from "react";
 import { useParams, Link } from "react-router-dom";
 import data from "../product/data";
 import "./detail.css";
-
-patchURl = "";
+patchUrl="";
 const Details = () => {
   const { id } = useParams();
   const product = data.find((item) => item.id === parseInt(id));
@@ -18,6 +17,8 @@ const Details = () => {
 
 
   const handleDonate = async () => {
+
+    // patch tong san pham khi nguoi dung donate
     totalProduct = stocked + quantity ; 
     const res = await (`${patchUrl}/products/${id}}`, {
       stocked : totalProduct
