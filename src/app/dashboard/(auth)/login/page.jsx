@@ -1,36 +1,36 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { getProviders, signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LoginPage = () => {
   const [err, setErr] = useState(false);
   const router = useRouter();
+  const session = useSession();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const usernameOrEmai = e.target[0].value;
+    const username = e.target[0].value;
     const password = e.target[1].value;
 
-    try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
-        usernameOrEmai,
+    
+      signIn("credentials", {
+        username,
         password,
       });
+   };
 
-      if (response.status === 200) {
-        // Redirect to the protected page upon successful login
-        router.push('/dashboard');
-      } else {
-        console.log('Login failed:', response.data.error);
-        setErr(true);
-      }
-    } catch (error) {
-      console.error(error);
-      setErr(true);
-    }
-  };
+  if (session.status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (session.status === "authenticated") {
+    router?.push("/dashboard");
+  }
 
   return (
     <div className="flex text-center items-center justify-center text-black ">
@@ -79,5 +79,6 @@ const LoginPage = () => {
     </div>
   );
 };
+
 
 export default LoginPage;

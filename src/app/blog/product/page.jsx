@@ -9,7 +9,6 @@ return (
     </div>
     <div className="product-footer">
     <h3>{name}</h3>
-    <h4>Stocked:{stocked}</h4> 
     <Link  className="btn" to={`/products/${id}`}>Recevie</Link>
     </div>
     

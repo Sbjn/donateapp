@@ -13,8 +13,8 @@ const links = [
 
   {
     id: 2,
-    title: "Portfolio",
-    url: "/portfolio",
+    title: "Products",
+    url: "/products",
   },
 
   {
@@ -56,13 +56,14 @@ const Navbar = () => {
             {links.title}
           </Link>
         ))}
-        
+        <p className="mr-3 text-sky-600">{session?.data?.user.username}</p>
+         {session.status === "authenticated" && (
           <button
           className=" px-3 bg-green-500 hover:bg-green-600 border-none cursor-pointer text-white rounded"
           onClick={signOut}>
           Logout
         </button>
-      
+       )}
         
       </div>
     </div>

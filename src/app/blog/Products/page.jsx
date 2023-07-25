@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Product from "../product/Product";
+import Product from "../product/page";
 import './products.css';
 
 const API_TEST = "https://api.escuelajs.co/api/v1/products?offset=0&limit=10";
