@@ -10,7 +10,7 @@
 .card {
 display: flex;
 justify-content: center;
-margin: 15rem auto; /* Set top and bottom margin to 5rem, and left and right margins to auto */
+margin: 0 auto; /* Set top and bottom margin to 5rem, and left and right margins to auto */
 gap: 2rem;
 }
 

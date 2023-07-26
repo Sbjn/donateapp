@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useEffect, useState } from "react";
 import styles from "./page.module.css";
@@ -16,13 +15,15 @@ const Dashboard = () => {
   console.log(session);
 
 
+
+
   useEffect(() => {
     const getData = async () => {
       setIsLoading(true);
       const res = await fetch(
-        `http://localhost:8080/api/user/${session.data.user.id}/posts`,
+        `http://localhost:8080/api/user/${session?.data?.user?.id}/posts`,
         {
-          cache: "reload",
+          cache: "no-cache",
         }
       );
 
@@ -36,7 +37,19 @@ const Dashboard = () => {
       setIsLoading(false);
     };
     getData();
-  }, []);
+  }, [session?.data?.user?.id]);
+
+  const handleDelete = async (postId) => {
+    try {
+      await fetch(`http://localhost:8080/api/posts/${postId}`, {
+        method: "DELETE",
+      });
+      mutate();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  
 
   if (session.status === "unauthenticated") {
     router?.push("/dashboard/login");
@@ -78,12 +91,14 @@ const Dashboard = () => {
                 height={200}
               />{" "}
             </div>
-            <Link href="/blog">
+            <Link href="/products">
               <button className={styles.card__btn}>Receive</button>
             </Link>
           </div>
         </div>
-      
+        <h1 className='h-52 flex justify-center items-center mb-7 font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... text-8xl'>
+            My Works
+        </h1>
         <div className="max-w-2xl mx-auto">
           <div className="flex flex-col justify-center items-center">
             <table className="w-56 table-fixed ">
@@ -98,29 +113,33 @@ const Dashboard = () => {
                   </th>
                   <th
                     scope="col"
-                    className="w-96 py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                    className="text-2xl items-center font-bold w-96 py-3 px-6 tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                   >
-                    Post Title
+                    記事のタイトル
                   </th>
                   <th
                     scope="col"
-                    className="w-96 py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                    className="text-2xl items-center font-bold w-96 py-3 px-6 tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                   >
-                    Image
+                    イメージ
                   </th>
                   <th
                     scope="col"
-                    className="w-96 py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
+                    className="text-2xl items-center font-bold w-96 py-3 px-6 tracking-wider text-left text-gray-700 uppercase dark:text-gray-400"
                   >
-                    Content
+                    コンテンツ
                   </th>
                   <th scope="col" className="w-12 p-4">
-                    <span className="sr-only">Edit</span>
+                    <span className="sr-only">編集</span>
+                  </th>
+                  <th scope="col" className=" text-2xl w-20 p-4">
+                    <span className="text-red-500 sr-only">X</span>
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                {data.reverse().map((item) => (
+              {Array.isArray(data) &&
+                  data.reverse().map((item) => (
                   <tr
                     key={item.postId}
                     className="hover:bg-gray-100 dark:hover:bg-gray-700"
@@ -132,28 +151,33 @@ const Dashboard = () => {
                         </label>
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <td className="text-xl py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {item.title}
                     </td>
                     <td className="py-4 px-6 text-sm font-medium text-gray-500 whitespace-nowrap dark:text-white overflow-hidden">
                     <Image
-                        src={item.image ? `http://localhost:8080/api/profiles/${item.image}` : '/path/to/default/image.jpg'}
+                        src={item.image ? `http://localhost:8080/api/profiles/${item.image}` : '/logo1.png'}
                         alt="Image"
                         className="object-cover rounded-xl"
                         width={300}
-                        height={300}
+                        height={200}
                       />
                     </td>
                     <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {item.content}
                     </td>
                     <td>
+                      
                       <Link
                         href={`/dashboard/${item.postId}`}
-                        className="text-blue-600 dark:text-blue-500 hover:underline"
+                        onClick={() => Router.push(`/dashboard/${item.postId}`)}
+                        className="text-xl text-blue-600 dark:text-blue-500 hover:text-green-500"
                       >
-                        Edit
+                        編集
                       </Link>
+                    </td>
+                    <td  className=" py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                      <button className="text-red-500" onClick={() => handleDelete(item.postId)}>Delete</button>
                     </td>
                   </tr>
                 ))}
