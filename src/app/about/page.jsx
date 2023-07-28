@@ -13,48 +13,48 @@ const About = () => {
         />
         <div className="absolute bottom-5 left-5 bg-gradient-to-r from-green-300 to-fuchsia-100 text-black">
           <h1 className="font-bold text-2xl">
-          WHO WE ARE. WHAT WE DO
+          私たちは誰なのか。 私達がすること
           </h1>
-          <h2>To Empower, Engage & Educate To Be A Guiding Force For Children</h2>
+          <h2>子どもたちの指導力となるよう力を与え、関わり、教育する</h2>
         </div>
       </div>
       <div className="justify-center grid grid-cols-2 gap-x-20 mt-9 p-3  ">
         <div className="flex-col grid-rows-2 my-2">
-          <h1 className="text-7xl font-extrabold">Our Mission</h1>
+          <h1 className="text-7xl font-extrabold">我々の使命</h1>
           <p className="text-justify text-base grid-flow-col my-2 gap-2 auto-rows-min">
-            To empower, engage and educate children and women from lower
-            sections of the society.
+          子どもたちと女性を下層階級からエンパワーメントし、関与させ、教育する
+          社会の各セクション。
             
-            so that they are able to stand up for
-            themselves and find their voice in a society that needs 
+          彼らが立ち上がることができるように
+          自分たち自身で、必要としている社会で自分たちの声を見つけてください。 
             
-            to be built
-            on respect, dignity and equality for every individual, regardless of
-            their gender, caste or class.
+          建てられる
+          あらゆる個人の尊重、尊厳、平等について、
+          彼らの性別、カースト、階級。
           </p>
           <p>
-            To make these children and women discover their
-            full potential, and equipping them with skills to ensure that they
-            can utilize this potential.
+          これらの子供たちと女性に自分自身の魅力を発見してもらうために
+          可能性を最大限に発揮し、確実に能力を発揮できるようスキルを身につける
+          このポテンシャルを活用できます。
           
             
           </p>
         </div>
         <div className="flex-col grid-rows-2 my-2">
-          <h1 className="text-7xl font-extrabold">Our Vision</h1>
+          <h1 className="text-7xl font-extrabold">私達のビジョン</h1>
           <p className="text-justify text-base grid-flow-col my-2 gap-2 auto-rows-min">
-            To be a guiding force for children and women who find it difficult
-            to fulfill their most basic needs by enabling them to build a better
-            life for themselves, by having a community based approach for their
-            development. 
+          困難を抱える子どもたちや女性たちの力になるために
+          より良いサービスを構築できるようにすることで、最も基本的なニーズを満たすことができます。
+          自分たちのためにコミュニティベースのアプローチをとることで、自分たちの人生を
+          発達。
             <br/>
-            To inspire, motivate and encourage people to come
-            together and take responsibility for making a better society for
-            individuals on the margins, by using their access and privilege to
-            help someone else. 
+            人々にインスピレーションを与え、やる気を起こさせ、来てもらうよう奨励する
+            一緒に、より良い社会を作る責任を負います。
+            へのアクセスと特権を利用して、限界に位置する個人
+             他の人を助けてください。
           </p>
           <div className="mt-9">
-          <Button url="/contact" text="contact"/>
+          <Button url="/contact" text="お問い合わせ"/>
           </div>
         </div>
       </div>

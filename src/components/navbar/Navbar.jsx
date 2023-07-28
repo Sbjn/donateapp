@@ -2,7 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-import { signOut, useSession } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const links = [
   {
@@ -13,8 +13,8 @@ const links = [
 
   {
     id: 2,
-    title: "Portfolio",
-    url: "/portfolio",
+    title: "Products",
+    url: "/products",
   },
 
   {
@@ -23,11 +23,7 @@ const links = [
     url: "/about",
   },
 
-  {
-    id: 4,
-    title: "Blog",
-    url: "/blog",
-  },
+
 
   {
     id: 5,
@@ -52,18 +48,26 @@ const Navbar = () => {
       <div className="flex">
         <DarkModeToggle className="mr-3" />
         {links.map((links) => (
-          <Link key={links.id} href={links.url} className="items-center mx-3">
+          <Link key={links.id} href={links.url} className="items-center mx-3 hover:text-green-500">
             {links.title}
           </Link>
         ))}
-        
+        <p className="mr-3 text-sky-600">{session?.data?.user.username}</p>
+
+         {session.status === "authenticated" && (
           <button
           className=" px-3 bg-green-500 hover:bg-green-600 border-none cursor-pointer text-white rounded"
           onClick={signOut}>
           Logout
         </button>
-      
-        
+       )}
+        {session.status === "unauthenticated" && (
+          <button
+          className=" px-3 bg-green-500 hover:bg-green-600 border-none cursor-pointer text-white rounded"
+          onClick={signIn}>
+          Login
+        </button>
+       )}
       </div>
     </div>
   );

@@ -44,23 +44,23 @@ const register = () => {
   return (
     <div className="flex text-center items-center justify-center text-black ">
       <div className="">
-        <h2 className="py-1 text-#bbb text-xl">Register</h2>
+      <h2 className="py-1 text-gray-900 text-3xl"><span className='bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... '>会員登録</span></h2>
         <form className="flex flex-col" onSubmit={handleSubmit}>
-          <label className="text-left py-1 text-#bbb" value="name">Full name</label>
-          <input className="my-2 p-4 border-2 rounded-lg bg-transparent text-#bbb font-medium" id="name" placeholder="Full Name" required />
-          <label className="text-left py-1 text-#bbb" value="email">Email</label>
-          <input className="my-2 p-4 border-2 rounded-lg bg-transparent text-#bbb font-medium" type="email" placeholder="Email" id="email" name="email"  required/>
-          <label className="text-left py-1 text-#bbb" value="password" required>Password</label>
-          <input className="my-2 p-4 border-2 rounded-lg bg-transparent text-#bbb font-medium"
+          <label className="text-left py-1 text-slate-400" value="name">ニックネーム</label>
+          <input className="bg-white my-2 p-4 border-2 rounded-lg bg-transparent text-gray-900 font-medium" id="name" placeholder="ニックネーム" required />
+          <label className="text-left py-1 text-slate-400" value="email">Eメール</label>
+          <input className="bg-white my-2 p-4 border-2 rounded-lg bg-transparent text-gray-900 font-medium" type="email" placeholder="Eメール" id="email" name="email"  required/>
+          <label className="text-left py-1 text-slate-400" value="password" required>パスワード</label>
+          <input className="bg-white my-2 p-4 border-2 rounded-lg bg-transparent text-gray-900 font-medium"
             type="password"
             placeholder="********"
             id="password"
             name="password"
           />
-          <button className="border-2 rounded-lg p-2 my-4 cursor-pointer font-bold text-xl text-white bg-green-500" type="submit">Register</button>
+          <button className="border-2 rounded-lg p-2 my-4 cursor-pointer font-bold text-xl text-white bg-green-500" type="submit">会員登録</button>
         </form>
         <p className="text-red-500">{err}</p>
-        <Link className="border-2 rounded-lg bg-transparent p-1 my-2 cursor-pointer text-#bbb " rel="stylesheet" href="/dashboard/login" >Already have an account? Login here.</Link>
+        <Link className=" bg-transparent p-1 my-2 cursor-pointer text-slate-400 " rel="stylesheet" href="/dashboard/login" >すでにアカウントをお持ちですか？ <br></br>ここでログイン。</Link>
       </div>
     </div>
   );
