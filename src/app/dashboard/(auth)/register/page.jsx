@@ -44,7 +44,7 @@ const register = () => {
   return (
     <div className="flex text-center items-center justify-center text-black ">
       <div className="">
-      <h2 className="py-1 text-gray-900 text-3xl"><span className='bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... '>登録</span></h2>
+      <h2 className="py-1 text-gray-900 text-3xl"><span className='bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ... '>会員登録</span></h2>
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <label className="text-left py-1 text-slate-400" value="name">ニックネーム</label>
           <input className="bg-white my-2 p-4 border-2 rounded-lg bg-transparent text-gray-900 font-medium" id="name" placeholder="ニックネーム" required />
@@ -57,7 +57,7 @@ const register = () => {
             id="password"
             name="password"
           />
-          <button className="border-2 rounded-lg p-2 my-4 cursor-pointer font-bold text-xl text-white bg-green-500" type="submit">Register</button>
+          <button className="border-2 rounded-lg p-2 my-4 cursor-pointer font-bold text-xl text-white bg-green-500" type="submit">会員登録</button>
         </form>
         <p className="text-red-500">{err}</p>
         <Link className=" bg-transparent p-1 my-2 cursor-pointer text-slate-400 " rel="stylesheet" href="/dashboard/login" >すでにアカウントをお持ちですか？ <br></br>ここでログイン。</Link>

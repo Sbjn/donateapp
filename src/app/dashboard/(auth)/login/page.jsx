@@ -63,14 +63,13 @@ const LoginPage = () => {
             className="border-2 rounded-lg p-2 my-4 cursor-pointer font-bold text-xl text-white bg-green-500"
             type="submit"
           >
-            Login
+            ログイン
           </button>
         </form>
       <div>
       <Link href="/dashboard/register">
         <button className="text-slate-400">
-        アカウントをお持ちでない場合は、 
-        <br></br>ここに登録。
+        アカウントをお持ちでない方
         </button>
       </Link>
       </div>
