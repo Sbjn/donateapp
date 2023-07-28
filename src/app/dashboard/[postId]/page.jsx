@@ -36,15 +36,10 @@ const updatePost = () => {
       const res = await fetch(`http://localhost:8080/api/posts/${id}`, {
         cache: "no-store",
       });
-
-     
-
       if (!res.ok) {
         setErr(true);
       }
-
       const data = await res.json()
-    
       setData(data);
       setIsLoading(false);
       setValues({...values,title: data.title,content:data.content})
@@ -95,9 +90,7 @@ const updatePost = () => {
         console.log(err);
       }
     };
-    
 
-  
 return (
   
   <form className={styles.new} onSubmit={handleSubmit} encType="multipart/form-data">

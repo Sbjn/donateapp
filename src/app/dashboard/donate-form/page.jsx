@@ -10,11 +10,8 @@ const donateform = () => {
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const session = useSession();
-
-  
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
-
   const [data, setData] = useState([]);
   const [err, setErr] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -38,8 +35,9 @@ const donateform = () => {
 
   console.log(data)
   
-  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+  // get Id when select title 
 
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   useEffect(() => {
     if (data.length > 0) {
       setSelectedCategoryId(data[0].categoryId);

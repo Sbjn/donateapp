@@ -7,6 +7,8 @@ const nextConfig = {
             "instagram.fhnd2-2.fna.fbcdn.net",
             "blogs.biomedcentral.com",
             "localhost",
+            "img.freepik.com",
+            "i.shgcdn.com"
         ]
     },
 };

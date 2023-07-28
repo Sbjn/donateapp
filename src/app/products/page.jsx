@@ -49,7 +49,7 @@ const Portfolio = async () => {
           <div className={styles.section}>
             <h1 className={styles.sectiontitle}>Products</h1>
             <div className={styles.productscenter}>
-              {data1.map(product => (
+              {data1.reverse().map(product => (
                 <Product
                   key={product.postId}
                   name={product.title}

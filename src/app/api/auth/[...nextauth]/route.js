@@ -28,7 +28,7 @@ const handler = NextAuth ({
           const res = await fetch("http://localhost:8080/api/auth/login", {
             method: "POST",
             headers: {
-              "Content-Type": "application/json",
+              "content-Type":"application/json"
             },
             body: JSON.stringify({
               username: credentials?.username,
@@ -51,6 +51,7 @@ const handler = NextAuth ({
   ],
   pages: {
     signIn: "/dashboard/login",
+    error:"/dashboard/login"
   },
 
   callbacks: {

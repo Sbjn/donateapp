@@ -3,30 +3,15 @@ import Button from "@/components/Button/Button";
 import Image from "next/image";
 
 
-
-// async function getData({params}) {
-//   const res = await fetch(`http://localhost:8080/api/category/${params.category}/posts`, {
-//     cache: "no-store",
-//   });
-
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
-
-//   return res.json();
-// }
-
 const Caregory = async ({ params }) => {
   
   async function getData() {
     const res = await fetch(`http://localhost:8080/api/category/${params.category}/posts`, {
       cache: "no-store",
     });
-  
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-  
     return res.json();
   }
 

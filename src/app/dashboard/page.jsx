@@ -23,7 +23,7 @@ const Dashboard = () => {
       const res = await fetch(
         `http://localhost:8080/api/user/${session?.data?.user?.id}/posts`,
         {
-          cache: "no-cache",
+          cache: "reload",
         }
       );
 
@@ -71,10 +71,10 @@ const Dashboard = () => {
             <div className={styles.card__body}>
               <Image
                 className={styles.card__image}
-                src="https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg"
+                src="https://img.freepik.com/premium-vector/food-donation-box-with-different-food-it-hands-giving-box-delivery-product-during-quarantine_183981-15.jpg?w=740"
                 alt="Image"
-                width={300}
-                height={200}
+                width={500}
+                height={500}
               />
             </div>
             <Link href="/dashboard/donate-form">
@@ -85,10 +85,10 @@ const Dashboard = () => {
             <div className={styles.card__body}>
               <Image
                 className={styles.card__image}
-                src="https://blogs.biomedcentral.com/on-medicine/wp-content/uploads/sites/6/2019/09/iStock-1131794876.t5d482e40.m800.xtDADj9SvTVFjzuNeGuNUUGY4tm5d6UGU5tkKM0s3iPk-620x342.jpg"
+                src="https://i.shgcdn.com/15e2b3f2-dc03-4ac7-9d6d-c4169eed944e/-/format/auto/-/preview/3000x3000/-/quality/lighter/"
                 alt="image"
-                width={300}
-                height={200}
+                width={500}
+                height={500}
               />{" "}
             </div>
             <Link href="/products">
@@ -163,7 +163,7 @@ const Dashboard = () => {
                         height={200}
                       />
                     </td>
-                    <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <td className="py-4 px-6 text-sm truncate font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {item.content}
                     </td>
                     <td>
@@ -177,7 +177,7 @@ const Dashboard = () => {
                       </Link>
                     </td>
                     <td  className=" py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                      <button className="text-red-500" onClick={() => handleDelete(item.postId)}>Delete</button>
+                      <button className="text-red-500 hover:text-rose-300" onClick={() => handleDelete(item.postId)}>Delete</button>
                     </td>
                   </tr>
                 ))}

@@ -48,7 +48,7 @@ const Navbar = () => {
       <div className="flex">
         <DarkModeToggle className="mr-3" />
         {links.map((links) => (
-          <Link key={links.id} href={links.url} className="items-center mx-3">
+          <Link key={links.id} href={links.url} className="items-center mx-3 hover:text-green-500">
             {links.title}
           </Link>
         ))}
